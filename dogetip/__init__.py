@@ -16,8 +16,7 @@ bitcoin = bitcoinrpc.connect_to_remote(
 @app.before_request
 def before_request():
   if request.remote_addr not in app.config['ALLOWED_IPS']:
-    pass
-    #abort(403)
+    abort(403)
 
 @app.route('/balance/<address>')
 def balance(address):
